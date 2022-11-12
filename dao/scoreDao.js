@@ -4,7 +4,6 @@ const { QueryTypes } = require('sequelize');
 const scoreHistDao = require('./scoreHistDao.js')
 
 const getScore = async(email)=>{
-	console.log(email)
 		return await scoreModel.findOne({ where: { email: email } });
 }
 const getRank = async(email)=>{

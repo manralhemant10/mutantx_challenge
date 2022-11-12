@@ -16,6 +16,7 @@ const getScore = async(queryObj)=>{
 			if(queryObj.offset)offset = parseInt(queryObj.offset)
 			if(queryObj.limit)limit = parseInt(queryObj.limit)
 			const allScores = await scoreDao.getAllScore()
+			if(allScores.length===0)return allScores
 			let newAllScores=[]
 			let rank = 1,len = allScores.length;
 			allScores[0].dataValues._rank=rank;
