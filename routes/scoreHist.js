@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json());
 
 
-router.get('/scorehist',tryCatch(async(req,res)=>{
+router.get('/hist/:userid?',tryCatch(async(req,res)=>{
 	await scoreHistController.getScore(req,res);
 }))
 

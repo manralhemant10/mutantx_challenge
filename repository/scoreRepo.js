@@ -3,10 +3,10 @@ const scoreHistDao = require('../dao/scoreHistDao.js')
 const {dbpool} = require('../config/config.js')
 
 const getScore = async(queryObj)=>{
-		if(queryObj.userId){
-			const res = await scoreDao.getScore(queryObj.userId)
+		if(queryObj.userid){
+			const res = await scoreDao.getScore(queryObj.userid)
 			if(res===null)	return res
-			const rank = await scoreDao.getRank(queryObj.userId) 
+			const rank = await scoreDao.getRank(queryObj.userid) 
 			res.dataValues.rank=rank+1
 			return res.dataValues
 			
@@ -44,14 +44,14 @@ const getScore = async(queryObj)=>{
 	}
 
 const update =  async(email,score)=>{
-		//if email not exist create new entry
 		const dataObj = {score:+score}
 		const condition = {
 				where:{
 					email:email
 				}
 		}
-		await scoreDao.update(dataObj,condition)
+		return await scoreDao.update(dataObj,condition)
+		
 }
 const create = async(dataObj)=>{
 	return await scoreDao.create(dataObj)

@@ -13,7 +13,7 @@ const getRank = async(email)=>{
 }
 
 const update =  async(dataObj,condition)=>{
-
+	let res;
 		await dbpool.transaction(async (t) => {
 			const histObj = await getScore(condition.where.email)
 			const _rank = await getRank(condition.where.email)
@@ -24,8 +24,9 @@ const update =  async(dataObj,condition)=>{
 			},{ transaction: t })
 			
 			await scoreModel.increment(dataObj, condition,{transaction:t});	
-
+			res= await scoreModel.findOne({where:{email:condition.where.email}})
 		})
+		return res
 
 }
 

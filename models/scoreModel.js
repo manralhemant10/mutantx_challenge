@@ -4,6 +4,7 @@ const {DataTypes} = require('sequelize')
 const scoreModel = dbpool.define("current_scores", {
 	  score_id: {
 	  	type: DataTypes.INTEGER,
+	  	autoIncrement: true,
 	  	primaryKey: true
 	  },
 	  email: DataTypes.STRING,

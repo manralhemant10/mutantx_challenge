@@ -1,0 +1,126 @@
+API Documentation
+
+Rest service /auth :
+	Resource /signup :
+		Methods:
+			Create : POST /signup (to create new user)
+				Req Headers:
+					Content-type: application/json
+				Req Body: 
+					{
+						email
+						password
+					}
+					
+				Res Body:{
+					status: status code of the response(201-created, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: {
+						id : id of the user created
+						email: email of the user created
+						updatedAt: current datetime
+						createdAt: current datetime
+					}
+				}
+	
+	Resource /login :
+		Methods:
+			Create : POST /login (for getting login token)
+				Req Headers:
+					Content-type: application/json
+				Req Body: 
+					{
+						email
+						password
+					}
+					
+				Res Body:{
+					status: status code of the response(200-success, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: {
+						token: this token will used for furhter authorized endpoints
+					}
+				}
+				
+Rest service /game :
+	Resource /score
+	Methods:
+		Create : POST /score (to create/update new score)
+			Req Headers:
+				Authorization:  Bearer token required
+				Content-type: application/json
+			Req Body: 
+				score: score that needs to be added(possible values 20/60/100)
+			Res Body:{
+				status: status code of the response(201-created, 400-Invalid request, 500-Internal server error)
+				msg: Success or Error Message
+				data: {
+					score_id : id of the user created
+					email: email of the user created
+					score: current score of this user
+					_rank: current rank of this user
+				}
+			}
+				
+		get: GET /score/{email} (to get score details of a particular user)
+			Res Body:{
+					status: status code of the response(201-created, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: {
+						score_id : id of the score created
+						email: email of that user 
+						score: current score of that user
+						_rank: current rank of that user
+					}
+				}
+
+		list: GET /score (to list score details of all users )
+			query param:
+				offset: value to start fetching from (optional)
+				limit: total no of records required (optional)
+	
+			Res Body:{
+					status: status code of the response(200-success, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: [{
+						score_id : id of the score created
+						email: email of that user 
+						score: current score of the user
+						_rank: current rank of the user
+					}]
+				}
+
+	Resource /hist :
+	Methods:			
+		get: GET /hist/{email} (to get history of score details of a particular user)
+			query param:
+				offset: value to start fetching from (optional)
+				limit: total no of records required (optional)
+			Res Body:{
+					status: status code of the response(200-success, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: [{
+						score_id : id of the score created
+						email: email of that user 
+						score: current score at that time of the user
+						_rank: current rank at that time of that user
+					}]
+				}
+
+		list: GET /hist (to list score history details of all users )
+			query param:
+				offset: value to start fetching from (optional)
+				limit: total no of records required (optional)
+	
+			Res Body:{
+					status: status code of the response(200-success, 400-Invalid request, 500-Internal server error)
+					msg: Success or Error Message
+					data: [{
+						score_id : id of the score created
+						email: email of that user 
+						score: current score at that time of the user
+						_rank: current rank at that time of that user
+					}]
+				}
+	
+
