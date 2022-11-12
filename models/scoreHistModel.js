@@ -1,6 +1,6 @@
 
 const {dbpool} = require('../config/config.js')
-const {DataTypes} = require('Sequelize') 
+const {DataTypes} = require('sequelize') 
 	
 const scoreHistModel = dbpool.define("track_scores", {
 	 score_id:{
