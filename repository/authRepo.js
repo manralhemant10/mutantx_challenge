@@ -1,4 +1,4 @@
-const userDao = require('../dao/UserDao.js')
+const userDao = require('../dao/userDao.js')
 module.exports = {
 	create: async(dataObj)=>{
 		return await userDao.create(dataObj)
