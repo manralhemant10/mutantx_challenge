@@ -9,6 +9,7 @@ app.use('/auth',authRouter)
 app.use('/game',scoreRouter)
 app.use(erroHandler)
 
+app.get('/',(req,res)=>res.send("sample working"))
 app.listen(PORT,()=>{
 	console.log(`server started at ${PORT}`)
 })
