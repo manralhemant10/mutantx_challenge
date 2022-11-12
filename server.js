@@ -13,7 +13,6 @@ app.use('/game',scoreHistRoute)
 
 app.use(erroHandler)
 
-app.get('/',(req,res)=>res.send("sample working"))
 app.listen(PORT,()=>{
 	console.log(`server started at ${PORT}`)
 })
