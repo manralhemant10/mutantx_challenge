@@ -17,7 +17,7 @@ const addScore = async(req,res)=>{
 			const {score,email} = req.body
 			if(score){
 				if(score===20 || score===60 || score===100){
-					const userScores = await scoreRepo.getScore({userId:email})
+					const userScores = await scoreRepo.getScore({userid:email})
 					let data;
 					if(!userScores){
 						data = await scoreRepo.create({
