@@ -7,7 +7,6 @@ module.exports = {
 		if(queryObj.limit)limit=parseInt(queryObj.limit)
 		if(queryObj.userid){
 			const res = await scoreHistDao.getScore(queryObj.userid, offset, limit)
-			if(res===null)throw new Error("No such user exists")
 			return res
 		}
 		else{

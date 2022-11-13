@@ -14,7 +14,8 @@ const dbpool = new Sequelize(process.env.dbname,  process.env.dbuser,  process.e
   dialect: 'mysql',
   pool:{
   	max:4
-  }
+  },
+  logging: false
 });
 module.exports={
 	PORT: process.env.PORT,

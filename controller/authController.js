@@ -27,7 +27,6 @@ const authController = {
 		}
 	},
 	login:async(req,res)=>{
-		console.log(JWT_SECRET_KEY)
 		const {email, password} = req.body
 		if(email && password){
 				await emailValidator(email)

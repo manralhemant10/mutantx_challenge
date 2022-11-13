@@ -4,7 +4,7 @@ const resObj = require('../wrapper/resObj.js')
 const getScore =  async(req,res)=>{
 		if(req.params.userid){
 				const userScores = await scoreRepo.getScore(req.params)
-				if(userScores===null)throw new Error("No such user exists")
+				if(userScores===null)return res.status(404).json(resObj(404,"No such user exists"))
 				return res.status(200).json(resObj(200,"Success",userScores))
 		}else{
 			const allScore = await scoreRepo.getScore(req.query)

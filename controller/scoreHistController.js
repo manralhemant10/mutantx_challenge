@@ -7,6 +7,7 @@ module.exports = {
 				req.query.userid = req.params.userid
 		}
 		const userScores = await scoreHistRepo.getScore(req.query)
+		if(userScores.length===0)return res.status(404).json(resObj(404,"No such user exists"))
 		return res.status(200).json(resObj(200,"Success",userScores))
 		
 	}

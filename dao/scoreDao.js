@@ -40,6 +40,7 @@ const getAllScore = async()=>{
 
 const create = async(dataObj)=>{
 	return await scoreModel.create(dataObj)
+
 }
 
 module.exports = {

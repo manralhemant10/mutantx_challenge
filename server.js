@@ -13,7 +13,7 @@ app.use('/game',scoreHistRoute)
 
 app.use(erroHandler)
 
-app.listen(PORT,()=>{
+module.exports = app.listen(PORT,()=>{
 	console.log(`server started at ${PORT}`)
 })
 

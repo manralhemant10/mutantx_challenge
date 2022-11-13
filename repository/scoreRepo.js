@@ -57,7 +57,10 @@ const update =  async(email,score)=>{
 		
 }
 const create = async(dataObj)=>{
-	return await scoreDao.create(dataObj)
+	const res = await scoreDao.create(dataObj)
+	const rank = await scoreDao.getRank(dataObj.email) 
+		res.dataValues._rank=rank+1
+		return res
 }
 module.exports = {
 	update,
