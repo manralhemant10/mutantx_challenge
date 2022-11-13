@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "e6aa9312-2f3d-4639-b807-3a105af3c995",
+		"name": "mutantx",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20449482"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"hemant@gmail.com\",\r\n    \"password\":\"hemant\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/auth/login",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"hemant3@gmail.com\",\r\n    \"password\":\"hemant\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/auth/signup",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add score",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbWFudEBnbWFpbC5jb20iLCJpYXQiOjE2NjgzMDQ1ODQsImV4cCI6MTY2ODMwODE4NH0.LSujc1FCQFSCdqOu0VWFB8swGsrrJOtT_rXCoWGovn4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"score\":60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/game/score",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"game",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScoreByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/game/score/hemant@gmail.com",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"game",
+						"score",
+						"hemant@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScoreAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/game/score?offset=0&limit=3",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"game",
+						"score"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScoreHistByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/game/hist/hemant@gmail.com?offset=0&limit=3",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"game",
+						"hist",
+						"hemant@gmail.com"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScoreHistAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mutantx-game.herokuapp.com/game/hist?offset=0&limit=5",
+					"protocol": "https",
+					"host": [
+						"mutantx-game",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"game",
+						"hist"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
