@@ -38,7 +38,7 @@ Rest service /auth :
 					status: status code of the response(200-success, 400-Invalid request, 500-Internal server error)
 					msg: Success or Error Message
 					data: {
-						token: this token will used for furhter authorized endpoints
+						token: this token will used for further authorized endpoints
 					}
 				}
 				
