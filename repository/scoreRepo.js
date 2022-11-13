@@ -7,7 +7,7 @@ const getScore = async(queryObj)=>{
 			const res = await scoreDao.getScore(queryObj.userid)
 			if(res===null)	return res
 			const rank = await scoreDao.getRank(queryObj.userid) 
-			res.dataValues.rank=rank+1
+			res.dataValues._rank=rank+1
 			return res.dataValues
 			
 		}
@@ -50,7 +50,10 @@ const update =  async(email,score)=>{
 					email:email
 				}
 		}
-		return await scoreDao.update(dataObj,condition)
+		const res = await scoreDao.update(dataObj,condition)
+		const rank = await scoreDao.getRank(email) 
+		res.dataValues._rank=rank+1
+		return res
 		
 }
 const create = async(dataObj)=>{
